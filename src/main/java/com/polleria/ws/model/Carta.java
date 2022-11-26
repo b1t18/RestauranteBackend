@@ -12,7 +12,7 @@ public class Carta
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idCarta;
+	private long idCarta;
 	private String nombrePlatillo;
 	private double precio;
 	private String descripcion;
@@ -29,7 +29,7 @@ public class Carta
 	
 	}
 
-	public Carta(int idCarta, String nombrePlatillo, double precio, String descripcion, Categoria categoria,
+	public Carta(long idCarta, String nombrePlatillo, double precio, String descripcion, Categoria categoria,
 			Local local) {
 		super();
 		this.idCarta = idCarta;
@@ -40,11 +40,11 @@ public class Carta
 		this.local = local;
 	}
 
-	public int getIdCarta() {
+	public long getIdCarta() {
 		return idCarta;
 	}
 
-	public void setIdCarta(int idCarta) {
+	public void setIdCarta(long idCarta) {
 		this.idCarta = idCarta;
 	}
 

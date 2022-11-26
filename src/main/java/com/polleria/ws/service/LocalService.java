@@ -8,5 +8,5 @@ public interface LocalService {
 	public List<Local> findAll();
 	public Local findById(Long idLocal);
 	public Local save(Local local);
-	public void deleteById(long idLocal);
+	public boolean deleteById(long idLocal);
 }

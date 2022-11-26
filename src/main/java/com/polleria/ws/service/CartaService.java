@@ -9,5 +9,5 @@ public interface CartaService
 	public List<Carta> findAll();
 	public Carta findById(long idCarta);
 	public Carta save(Carta carta);
-	public void deleteById(long idCarta);
+	public boolean deleteById(long idCarta);
 }

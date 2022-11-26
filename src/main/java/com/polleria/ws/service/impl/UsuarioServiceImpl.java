@@ -26,24 +26,42 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 
 	@Override
-	public void save(Usuario usuario) {
-		usuarioRepository.save(usuario);
+	public Usuario save(Usuario usuario) {
+		return usuarioRepository.save(usuario);
 
 	}
 
 	@Override
-	public void deleteLogic(Long nroUsuario) 
+	public boolean deleteLogic(Long nroUsuario) 
 	{
-		Usuario usu = findById(nroUsuario);
-		if (usu == null) return;
-		usu.setEstado(false);
-		usuarioRepository.save(usu);
+		try
+		{
+			Usuario usu = findById(nroUsuario);
+			if (usu == null) return false;
+			usu.setEstado(false);
+			usuarioRepository.save(usu);
+			return true;
+		}
+		catch (Exception e)
+		{
+			throw e;
+		}
 	}
 	
 	@Override
-	public void deleteDate(Long nroUsuario)
+	public boolean deletePhysical(Long nroUsuario)
 	{
-		usuarioRepository.deleteById(nroUsuario);
+		try
+		{
+			if (!usuarioRepository.existsById(nroUsuario)) return false;
+			
+			usuarioRepository.deleteById(nroUsuario);
+			return true;
+		}
+		catch (Exception e)
+		{
+			throw e;
+		}
 	}
 
 }

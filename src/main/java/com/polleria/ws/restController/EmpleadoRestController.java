@@ -73,6 +73,7 @@ public class EmpleadoRestController {
 	}
 	
 	@DeleteMapping("/eliminar/{nroEmpleado}")
+	@ResponseStatus(HttpStatus.OK)
 	public void eliminarEmpleado(@PathVariable long nroEmpleado)
 	{
 		empleadoService.delete(nroEmpleado);

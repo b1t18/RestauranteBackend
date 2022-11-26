@@ -8,7 +8,7 @@ public interface UsuarioService
 {
 	public List<Usuario> findAll();
 	public Usuario findById(long nroUsuario);
-	public void save(Usuario usuario);
-	public void deleteLogic(Long nroUsuario);
-	public void deleteDate(Long nroUsuario);
+	public Usuario save(Usuario usuario);
+	public boolean deleteLogic(Long nroUsuario);
+	public boolean deletePhysical(Long nroUsuario);
 }

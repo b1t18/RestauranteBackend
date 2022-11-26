@@ -33,9 +33,19 @@ public class RolServiceImpl implements RolService
 	}
 
 	@Override
-	public void deleteById(long idRol) 
+	public boolean deleteById(long idRol) 
 	{
-		rolRepository.deleteById(idRol);
+		try
+		{
+			if (!rolRepository.existsById(idRol)) return false;
+			
+			rolRepository.deleteById(idRol);
+			return true;
+		}
+		catch (Exception e)
+		{
+			throw e;
+		}
 	}
 	
 	

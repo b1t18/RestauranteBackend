@@ -34,9 +34,19 @@ public class DetallePedidoServiceImpl implements DetallePedidoService
 	}
 
 	@Override
-	public void deleteById(long nroDetallePedido) 
+	public boolean deleteById(long nroDetallePedido) 
 	{
-		detallePedidoRepository.deleteById(nroDetallePedido);
+		try
+		{
+			if (!detallePedidoRepository.existsById(nroDetallePedido)) return false;
+			
+			detallePedidoRepository.deleteById(nroDetallePedido);
+			return true;
+		}
+		catch (Exception e)
+		{
+			throw e;
+		}
 	}
 	
 	

@@ -9,5 +9,5 @@ public interface RolService
 	public List<Rol> findAll();
 	public Rol findById(long idRol);
 	public Rol save(Rol rol);
-	public void deleteById(long idRol);
+	public boolean deleteById(long idRol);
 }

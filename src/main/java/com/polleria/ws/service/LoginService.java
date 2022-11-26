@@ -9,5 +9,7 @@ public interface LoginService
 	public List<Login> findAll();
 	public Login findById(long idLogin);
 	public Login save(Login login);
-	public void deleteById(long idLogin);
+	public boolean deleteById(long idLogin);
+	
+	public Login findByUYP(String user, String password);
 }

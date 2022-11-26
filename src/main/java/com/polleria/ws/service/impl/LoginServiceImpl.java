@@ -31,7 +31,23 @@ public class LoginServiceImpl implements LoginService
 	}
 
 	@Override
-	public void deleteById(long idLogin) {
-		loginRepository.deleteById(idLogin);
+	public boolean deleteById(long idLogin) 
+	{
+		try 
+		{
+			if (!loginRepository.existsById(idLogin)) return false;
+			
+			loginRepository.deleteById(idLogin);
+			return true;
+		}
+		catch (Exception e)
+		{
+			throw e;
+		}
+	}
+
+	@Override
+	public Login findByUYP(String user, String password) {
+		return loginRepository.findByUserAndPassword(user, password);
 	}
 }

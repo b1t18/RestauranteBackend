@@ -16,13 +16,22 @@ public class CartaServiceImpl implements CartaService
 	private CartaRepository cartaRepository;
 
 	@Override
-	public List<Carta> findAll() {
+	public List<Carta> findAll() 
+	{
 		return cartaRepository.findAll();
 	}
 
 	@Override
-	public Carta findById(long idCarta) {
-		return cartaRepository.findById(idCarta).orElse(null);
+	public Carta findById(long idCarta) 
+	{
+		try 
+		{
+			return cartaRepository.findById(idCarta).orElse(null);
+		}
+		catch(Exception e)
+		{
+			throw e;
+		}
 	}
 
 	@Override
@@ -32,9 +41,20 @@ public class CartaServiceImpl implements CartaService
 	}
 
 	@Override
-	public void deleteById(long idCarta) 
+	public boolean deleteById(long idCarta) 
 	{
-		cartaRepository.deleteById(idCarta);;
+		
+		try 
+		{
+			if (!cartaRepository.existsById(idCarta)) return false;
+			
+			cartaRepository.deleteById(idCarta);;
+			return true;
+		}
+		catch(Exception e)
+		{
+			throw e;
+		}
 	}
 	
 	

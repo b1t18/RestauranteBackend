@@ -12,11 +12,11 @@ public class DetallePedido
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int nroDetalle;
+	private long nroDetalle;
 	
 	@OneToOne
 	@JoinColumn(name = "nroPedido")
-	private int nroPedido;
+	private Pedido pedido;
 	private String nombre;
 	private int cantidad;
 	private double precio;
@@ -25,30 +25,30 @@ public class DetallePedido
 		
 	}
 	
-	public DetallePedido(int nroDetalle, int nroPedido, String nombre, int cantidad, double precio) 
+	public DetallePedido(long nroDetalle, Pedido pedido, String nombre, int cantidad, double precio) 
 	{
 		super();
 		this.nroDetalle = nroDetalle;
-		this.nroPedido = nroPedido;
+		this.pedido = pedido;
 		this.nombre = nombre;
 		this.cantidad = cantidad;
 		this.precio = precio;
 	}
 
-	public int getNroDetalle() {
+	public long getNroDetalle() {
 		return nroDetalle;
 	}
 
-	public void setNroDetalle(int nroDetalle) {
+	public void setNroDetalle(long nroDetalle) {
 		this.nroDetalle = nroDetalle;
 	}
 
-	public int getNroPedido() {
-		return nroPedido;
+	public Pedido getPedido() {
+		return pedido;
 	}
 
-	public void setNroPedido(int nroPedido) {
-		this.nroPedido = nroPedido;
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
 	}
 
 	public String getNombre() {

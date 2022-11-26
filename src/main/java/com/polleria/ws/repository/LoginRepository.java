@@ -6,5 +6,5 @@ import com.polleria.ws.model.Login;
 
 public interface LoginRepository extends JpaRepository<Login, Long>
 {
-
+	public Login findByUserAndPassword(String user, String password);
 }

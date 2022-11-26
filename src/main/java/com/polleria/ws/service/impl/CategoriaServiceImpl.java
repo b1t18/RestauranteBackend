@@ -34,7 +34,18 @@ public class CategoriaServiceImpl implements CategoriaService{
 	}
 
 	@Override
-	public void deleteById(long idCategoria) {
-		categoriaRepository.deleteById(idCategoria);
+	public boolean deleteById(long idCategoria) 
+	{
+		try
+		{
+			if (!categoriaRepository.existsById(idCategoria)) return false;
+			
+			categoriaRepository.deleteById(idCategoria);
+			return true;
+		}
+		catch (Exception e)
+		{
+			throw e;
+		}
 	}
 }

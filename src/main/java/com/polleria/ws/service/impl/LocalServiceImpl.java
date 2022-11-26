@@ -31,8 +31,19 @@ public class LocalServiceImpl implements LocalService
 	}
 
 	@Override
-	public void deleteById(long idLocal) {
-		localRepository.deleteById(idLocal);
+	public boolean deleteById(long idLocal) 
+	{
+		try
+		{
+			if(!localRepository.existsById(idLocal)) return false;
+			
+			localRepository.deleteById(idLocal);
+			return true;
+		}
+		catch (Exception e)
+		{
+			throw e;
+		}
 	}
 	
 	
