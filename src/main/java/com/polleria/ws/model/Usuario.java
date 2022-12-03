@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -40,13 +42,18 @@ public class Usuario
 	@Column(nullable = false)
 	private boolean estado;
 	
+	@OneToOne
+	@JoinColumn(name = "idLogin")
+	private Login login;
+	
 	public Usuario() {
 		
 	}
 	
-	public Usuario(long nroUsuario, String nombre, String apellido, String dni, String correo, String direccion,
+	public Usuario(long nroUsuario, Login login, String nombre, String apellido, String dni, String correo, String direccion,
 			String telefono, Date fechaIngreso, boolean estado) {
 		this.nroUsuario = nroUsuario;
+		this.login = login;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.dni = dni;
@@ -129,6 +136,14 @@ public class Usuario
 		this.estado = estado;
 	}
 
+	public Login getLogin() {
+		return login;
+	}
+
+
+	public void setLogin(Login login) {
+		this.login = login;
+	}
 	
 }
 

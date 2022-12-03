@@ -43,13 +43,16 @@ public class Empleado
 	@JoinColumn(name = "idLocal")
 	private Local local;
 	
+	@OneToOne
+	@JoinColumn(name = "idLogin")
+	private Login login;
+
 	public Empleado(){
 		
 	}
 	
-	
 	public Empleado(long nroEmpleado, String nombre, String apellido, Date fechaNacimiento, String correo, String dni,
-			String telefono, String direccion, Date fechaIngreso, double salario, boolean estado, Rol rol, Local local) {
+			String telefono, String direccion, Date fechaIngreso, double salario, boolean estado, Rol rol, Local local, Login login) {
 		this.nroEmpleado = nroEmpleado;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -63,8 +66,11 @@ public class Empleado
 		this.estado = estado;
 		this.rol = rol;
 		this.local = local;
+		this.login = login;
 	}
 
+	
+	
 	public long getNroEmpleado() {
 		return nroEmpleado;
 	}
@@ -189,6 +195,15 @@ public class Empleado
 
 	public void setLocal(Local local) {
 		this.local = local;
+	}
+	
+	public Login getLogin() {
+		return login;
+	}
+
+
+	public void setLogin(Login login) {
+		this.login = login;
 	}
 
 }

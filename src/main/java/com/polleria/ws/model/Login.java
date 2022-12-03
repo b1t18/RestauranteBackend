@@ -1,5 +1,6 @@
 package com.polleria.ws.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,27 +15,20 @@ public class Login
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idLogin;
 	
-	@OneToOne
-	@JoinColumn(name = "nroUsuario")
-	private Usuario usuario;
-	
-	@OneToOne
-	@JoinColumn(name = "nroEmpleado")
-	private Empleado empleado;
-	
+	@Column(unique = true)
 	private String user;
 	private String password;
+	private String tipoUser;
 	
 	public Login() {
 		
 	}
 
-	public Login(long idLogin, Usuario usuario, Empleado empleado, String user, String password) {
+	public Login(long idLogin, String user, String password, String tipoUser) {
 		this.idLogin = idLogin;
-		this.usuario = usuario;
-		this.empleado = empleado;
 		this.user = user;
 		this.password = password;
+		this.tipoUser = tipoUser;
 	}
 
 	public long getIdLogin() {
@@ -43,22 +37,6 @@ public class Login
 
 	public void setIdLogin(long idLogin) {
 		this.idLogin = idLogin;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
-	public Empleado getEmpleado() {
-		return empleado;
-	}
-
-	public void setEmpleado(Empleado empleado) {
-		this.empleado = empleado;
 	}
 
 	public String getUser() {
@@ -75,6 +53,14 @@ public class Login
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getTipoUser() {
+		return tipoUser;
+	}
+
+	public void setTipoUser(String tipoUser) {
+		this.tipoUser = tipoUser;
 	}
 	
 	

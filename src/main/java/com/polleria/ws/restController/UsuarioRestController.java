@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.polleria.ws.model.Usuario;
 import com.polleria.ws.service.UsuarioService;
+import com.polleria.ws.util.Utilitario;
 
 @RestController
 @RequestMapping("/usuario")
@@ -55,6 +56,7 @@ public class UsuarioRestController
 	{
 		try
 		{
+			usuario.setFechaIngreso(new Utilitario().obtenerFechaActual());
 			return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.save(usuario));
 		}
 		catch (Exception e) 

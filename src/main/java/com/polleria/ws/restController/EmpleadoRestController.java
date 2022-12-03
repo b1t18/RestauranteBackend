@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.polleria.ws.model.Empleado;
 import com.polleria.ws.service.EmpleadoService;
+import com.polleria.ws.util.Utilitario;
 
 @RestController
 @RequestMapping("/empleado")
@@ -50,6 +51,7 @@ public class EmpleadoRestController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public void guardarEmpleado(@RequestBody Empleado empleado)
 	{
+		empleado.setFechaIngreso(new Utilitario().obtenerFechaActual());
 		empleadoService.save(empleado);
 	}
 	

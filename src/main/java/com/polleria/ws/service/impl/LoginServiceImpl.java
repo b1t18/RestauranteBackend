@@ -48,6 +48,7 @@ public class LoginServiceImpl implements LoginService
 
 	@Override
 	public Login findByUYP(String user, String password) {
+		
 		return loginRepository.findByUserAndPassword(user, password);
 	}
 }

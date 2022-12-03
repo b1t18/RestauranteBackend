@@ -2,6 +2,7 @@ package com.polleria.ws.service;
 
 import java.util.List;
 
+import com.polleria.ws.dto.LoginDTO;
 import com.polleria.ws.model.Login;
 
 public interface LoginService 

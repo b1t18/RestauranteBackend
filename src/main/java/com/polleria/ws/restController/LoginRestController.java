@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.polleria.ws.dto.LoginDTO;
 import com.polleria.ws.model.Login;
 import com.polleria.ws.service.LoginService;
 
@@ -59,6 +60,7 @@ public class LoginRestController
 		}
 		catch (Exception e) 
 		{
+			System.out.println(e);
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Ha ocurrido un error, por favor inténtelo de nuevo más tarde");
 		}
 	}
