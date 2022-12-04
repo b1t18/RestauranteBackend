@@ -128,7 +128,7 @@ public class Usuario
 		this.fechaIngreso = fechaIngreso;
 	}
 
-	public boolean isEstado() {
+	public boolean getEstado() {
 		return estado;
 	}
 

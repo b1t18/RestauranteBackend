@@ -50,6 +50,19 @@ public class CartaRestController {
 		}
 	}
 	
+	@GetMapping("/listarPorLocal/{idLocal}")
+	public ResponseEntity<?> listarCartaPorLocal(@PathVariable long idLocal)
+	{
+		try
+		{
+			return ResponseEntity.status(HttpStatus.OK).body(cartaService.findByDTO(idLocal));
+		}
+		catch (Exception e) 
+		{
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ha ocurrido un error, por favor inténtelo de nuevo más tarde");
+		}
+	}
+	
 	@PostMapping("/guardar")
 	public ResponseEntity<?> guardarCarta(@RequestBody Carta carta)
 	{

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.polleria.ws.dto.LoginDTO;
 import com.polleria.ws.model.Login;
 import com.polleria.ws.service.LoginService;
 

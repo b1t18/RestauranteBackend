@@ -14,6 +14,7 @@ public class Carta
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idCarta;
 	private String nombrePlatillo;
+	private String imageRuta;
 	private double precio;
 	private String descripcion;
 	
@@ -29,11 +30,12 @@ public class Carta
 	
 	}
 
-	public Carta(long idCarta, String nombrePlatillo, double precio, String descripcion, Categoria categoria,
+	public Carta(long idCarta, String nombrePlatillo, String imageRuta, double precio, String descripcion, Categoria categoria,
 			Local local) {
 		super();
 		this.idCarta = idCarta;
 		this.nombrePlatillo = nombrePlatillo;
+		this.imageRuta = imageRuta;
 		this.precio = precio;
 		this.descripcion = descripcion;
 		this.categoria = categoria;
@@ -86,6 +88,14 @@ public class Carta
 
 	public void setLocal(Local local) {
 		this.local = local;
+	}
+
+	public String getImageRuta() {
+		return imageRuta;
+	}
+
+	public void setImageRuta(String imageRuta) {
+		this.imageRuta = imageRuta;
 	}
 	
 	

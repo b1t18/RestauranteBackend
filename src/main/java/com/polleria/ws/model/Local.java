@@ -15,13 +15,14 @@ public class Local
 	private String direccion;
 	private String hora;
 	private String telefono;
+	private String rutaGoogleMaps;
 	
 	public Local()
 	{
 		
 	}
 	
-	public Local(int idLocal, String nombre, String direccion, String hora, String telefono) 
+	public Local(int idLocal, String nombre, String direccion, String hora, String telefono, String rutaGoogleMaps) 
 	{
 		super();
 		this.idLocal = idLocal;
@@ -29,6 +30,7 @@ public class Local
 		this.direccion = direccion;
 		this.hora = hora;
 		this.telefono = telefono;
+		this.rutaGoogleMaps = rutaGoogleMaps;
 	}
 
 	public int getIdLocal() {
@@ -69,6 +71,14 @@ public class Local
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+
+	public String getRutaGoogleMaps() {
+		return rutaGoogleMaps;
+	}
+
+	public void setRutaGoogleMaps(String rutaGoogleMaps) {
+		this.rutaGoogleMaps = rutaGoogleMaps;
 	}
 	
 	
